@@ -2,11 +2,12 @@ package pl.codewise.internships;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class Receiver implements MessageQueue
 {
-	LinkedList<Message> messageContainer = new LinkedList<Message>();
+	LinkedList<Message> messageContainer = (LinkedList<Message>) Collections.synchronizedList(new LinkedList<Message>());
 
 	public void add(Message message) 
 	{
@@ -37,7 +38,6 @@ public class Receiver implements MessageQueue
 
 	public long numberOfErrorMessages() 
 	{
-	
 		long numberOfErrors = 0;
 		int counter = 0;
 		
@@ -55,6 +55,7 @@ public class Receiver implements MessageQueue
 			}
 			counter++;
 		}
+		
 		return numberOfErrors;
 	}
 

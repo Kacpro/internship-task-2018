@@ -50,6 +50,6 @@ public class MessageQueueTest
 			receiver.add(new Message("Kacper" + i, 200));
 		}
 		// there are currently 120 messages in the receiver
-		assertEquals("Snapshot of a receiver with over 100 messages should contain 100 messages",100, receiver.snapshot().getList().size());
+		assertEquals("Snapshot of a receiver with over then 100 messages should contain 100 messages",100, receiver.snapshot().getList().size());
 	}
 }
